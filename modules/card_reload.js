@@ -16,7 +16,7 @@ export function reloadProduct(arr, place) {
     let rate_h1 = document.createElement("h1");
     let rate_img = document.createElement("img");
     let heart = document.createElement('img')
-    let add_card_btn = document.createElement('img')
+    // let add_card_btn = document.createElement('img')
 
     div.classList.add("product");
     img.classList.add("product_img");
@@ -28,13 +28,13 @@ export function reloadProduct(arr, place) {
     sale_price.classList.add("product_sale_price");
     heart.classList.add('heart')
     razdel_price.classList.add('razdel_price')
-    add_card_btn.classList.add('add_card_btn')
+    // add_card_btn.classList.add('add_card_btn')
     div_down.classList.add('div_down')
     div_price.classList.add('div_price')
 
     img.src = item.media[0];
     rate_h1.innerHTML = item.rating;
-    rate_img.src = "/public/icon/star.png";
+    rate_img.src = "/icon/star.png";
     title.innerHTML = `${item.title.slice(0, 40)}...`;
     original_price.innerHTML = price;
     if (item.isBlackFriday === true) {
@@ -44,8 +44,8 @@ export function reloadProduct(arr, place) {
       );
     }
     razdel_price.innerHTML = `${Math.floor(item.price / 12)} мес`
-    heart.src = '/public/icon/heart.png'
-    add_card_btn.src = '/public/icon/market.svg'
+    heart.src = '/icon/heart.png'
+    // add_card_btn.src = '/icon/market.svg'
 
     place.append(div);
     div.append(heart, img, title, rate_div, razdel_price, div_down);
@@ -57,10 +57,10 @@ export function reloadProduct(arr, place) {
       location.assign(`/pages/product_page/product.html?id=${item.id}`);
     };
     heart.onclick = () => {
-      if (heart.src === '/public/icon/heart.png') {
-        heart.src = '/public/icon/like.svg'
+      if (heart.src === '/icon/heart.png') {
+        heart.src = '/icon/like.svg'
       }else{
-        heart.src = '/public/icon/heart.png'
+        heart.src = '/icon/heart.png'
       }
     }
   }
