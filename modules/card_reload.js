@@ -49,7 +49,7 @@ export function reloadProduct(arr, place) {
 
     place.append(div);
     div.append(heart, img, title, rate_div, razdel_price, div_down);
-    div_down.append(div_price, add_card_btn)
+    div_down.append(div_price)
     div_price.append(original_price, sale_price)
     rate_div.append(rate_h1, rate_h1);
 
