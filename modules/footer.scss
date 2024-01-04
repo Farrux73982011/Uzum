@@ -1,0 +1,63 @@
+footer{
+    width: 100%;
+    padding: 0 13%;
+    margin-top: 50px;
+}
+
+.div_up{
+    width: 100%;
+    border-bottom: 1px solid #d7d7d9;
+    display: flex;
+    div{
+        width: 25%;
+        h1{
+            font-size: 14px;
+        }
+        p{
+            cursor: pointer;
+            margin-top: 20px;
+            font-weight: 500;
+            font-size: 12px;
+        }
+    }
+    .skach_div{
+        margin-top: 20px;
+        margin-bottom: 40px;
+        width: 100%;
+        align-items: center;
+        display: flex;
+        div{
+            cursor: pointer;
+            width: 40%;
+            display: flex;
+        }
+    }
+    .uzum_soch{
+        margin-bottom: 10px;
+        width: 200%;
+    }
+    .soch_div{
+        margin-bottom: 20px;
+        justify-content: space-between;
+        width: 200%;
+        display: flex;
+        img{
+            cursor: pointer;
+        }
+    }
+}
+.div_down{
+    padding: 10px 0;
+    display: flex;
+    width: 100%;
+    p{
+        margin-left: 170px;
+        font-size: 15px;
+        font-weight: 500;
+    }
+    h1{
+        cursor: pointer;
+        margin-right: 15px;
+        font-size: 15px;
+    }
+}
