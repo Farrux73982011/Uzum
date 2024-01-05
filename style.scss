@@ -11,7 +11,7 @@
   border: none;
 }
 .container{
-  width: 74%;
+  width: 100%;
   margin: auto;
 }
 .product_cards {
@@ -55,9 +55,10 @@
 }
 
 .btns_div {
+  padding: 0 10px !important;
   display: flex !important;
   justify-content: space-between;
-  width: 94%;
+  width: 100%;
   margin: auto;
   .btn_strelka {
     cursor: pointer;

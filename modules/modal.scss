@@ -1,0 +1,30 @@
+.modal_search{
+    padding: 0 10px 0 10px;
+    left: 34%;
+    z-index: 1000;
+    position: absolute;
+    display: none;
+    width: 28%;
+    box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+  }
+
+.modal_ser_div{
+    height: 50px;
+    cursor: pointer;
+    align-items: center;
+    display: flex;
+    img{
+        margin-top: 30px;
+        width: 5%;
+        margin-right: 5%;
+    }
+    h1{
+        width: 100%;
+        margin-top: 20px;
+        font-size: 14px;
+        font-weight: 400;
+    }
+}

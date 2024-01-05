@@ -34,7 +34,7 @@ export function reloadProduct(arr, place) {
 
     img.src = item.media[0];
     rate_h1.innerHTML = item.rating;
-    rate_img.src = "/icon/star.png";
+    rate_img.src = "/public/icon/star.png";
     title.innerHTML = `${item.title.slice(0, 40)}...`;
     original_price.innerHTML = price;
     if (item.isBlackFriday === true) {
@@ -44,28 +44,28 @@ export function reloadProduct(arr, place) {
       );
     }
     razdel_price.innerHTML = `${Math.floor(item.price / 12)} мес`
-    heart.src = '/icon/heart.png'
-    // add_card_btn.src = '/icon/market.svg'
+    heart.src = '/public/icon/heart.png'
+    // add_card_btn.src = '/public/icon/market.svg'
 
     place.append(div);
     div.append(heart, img, title, rate_div, razdel_price, div_down);
     div_down.append(div_price)
     div_price.append(original_price, sale_price)
-    rate_div.append(rate_h1, rate_h1);
+    rate_div.append(rate_img, rate_h1);
 
-    div.onclick = () => {
+    title.onclick = () => {
       location.assign(`/pages/product_page/product.html?id=${item.id}`);
     };
     heart.onclick = () => {
-      if (heart.src === '/icon/heart.png') {
-        heart.src = '/icon/like.svg'
+      if (heart.src === '/public/icon/heart.png') {
+        heart.src = '/public/icon/like.svg'
       }else{
-        heart.src = '/icon/heart.png'
+        heart.src = '/public/icon/heart.png'
       }
     }
   }
-  let imgs_div = document.querySelectorAll('.big_img')
-  let big_img = document.querySelector('.big_img')
+  // let imgs_div = document.querySelectorAll('.big_img')
+  // let big_img = document.querySelector('.big_img')
 
-  big_img.src = arr.media[0]
+  // big_img.src = arr.media[0]
 }

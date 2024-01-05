@@ -1,6 +1,7 @@
 import { reloadGenres } from "./genres"
 import { getData } from "./http"
-import { reloadSearch } from "./modal"
+import '/modules/modal.scss'
+// import { reloadSearch } from "./modal"
 import '/modules/header.scss'
 
 let header = document.querySelector('header')
@@ -62,7 +63,7 @@ let categoriess_box_d = document.createElement('div')
 //B
 
 city.innerHTML = 'Город:'
-place_img.src = '/icon/place.svg'
+place_img.src = '/public/icon/place.svg'
 place_span.innerHTML = 'Ташкент'
 punkt.innerHTML = 'Пункты выдачи'
 dos.innerHTML = 'Доставим ваш заказ бесплатно — всего за 1 день!'
@@ -71,19 +72,19 @@ vop_ot.href = '#'
 my_zakaz.innerHTML = 'Мои заказы'
 my_zakaz.href = '#'
 lang_box.innerHTML = 'Русский'
-ru_img.src = '/icon/ru.svg'
-logo2_img.src = '/icon/uzum_logo2.svg'
+ru_img.src = '/public/icon/ru.svg'
+logo2_img.src = 'https://uzum-by-doni.netlify.app/uzum_logo.png'
 catalog_btn.innerHTML = 'Каталог'
 search_inp.placeholder = 'Искать товары и категории'
-search_img.src = '/icon/search.svg'
+search_img.src = '/public/icon/search.svg'
 people_btn.innerHTML = 'Войти'
-people_img.src = '/icon/people.svg'
+people_img.src = '/public/icon/people.svg'
 izb_btn.innerHTML = 'Избранное'
-izb_img.src = '/icon/izb.svg'
+izb_img.src = '/public/icon/izb.svg'
 paket_btn.innerHTML = 'Корзина'
-paket_img.src = '/icon/paket.svg'
+paket_img.src = '/public/icon/paket.svg'
 rass_box.innerHTML = 'Рассрочка'
-rass_img.src = '/icon/union.png'
+rass_img.src = '/public/icon/union.png'
 
 //B
 
@@ -105,6 +106,7 @@ logo2.classList.add('logo2')
 modal.classList.add('modal_search')
 logo2_img.classList.add('logo2_img')
 catalog_btn.classList.add('catalog_btn')
+catalog_div.classList.add('catalog_div')
 div_catal1.classList.add('div_catal1')
 div_catal2.classList.add('div_catal2')
 div_catal3.classList.add('div_catal3')
@@ -137,7 +139,7 @@ lang_box.prepend(ru_img)
 header_middle.append(logo2, catalog_btn, search_inp, search_btn, div_btn)
 logo2.append(logo2_img)
 catalog_btn.prepend(catalog_div)
-catalog_div.append(div_catal1, div_catal2, div_catal3)
+catalog_div.prepend(div_catal1, div_catal2, div_catal3)
 search_btn.append(search_img)
 div_btn.append(people_btn, izb_btn, paket_btn)
 people_btn.prepend(people_img)
@@ -162,23 +164,63 @@ paket_btn.onclick = () => {
     location.assign('/pages/card/card.html')
 }
 
+search_inp.onkeyup = async () => {
+    let search = search_inp.value.trim().toLowerCase();
 
-search_inp.onkeyup = () => {
-    let search = search_inp.value.trim().toLowerCase()
-    if (search_inp.value.length >= 0) {
-        modal.classList.remove('show', 'fade')
-        modal.classList.add('hide')
+    if (search.length > 0) {
+        try {
+            let res = await getData('/goods');
+            let tov = res;  // Изменено на let res
+            let filt_tov = tov.filter(tov => tov.title.trim().toLowerCase().includes(search));
+
+            let modal_search = document.querySelector('.modal_search');
+            modal_search.innerHTML = '';
+
+            for (let item of filt_tov) {
+                let div = document.createElement('div')
+                let img= document.createElement('img')
+                let h1 = document.createElement('h1');
+                h1.classList.add('modal_ser_h1');
+                div.classList.add('modal_ser_div');
+                img.classList.add('modal_ser_img');
+
+                img.src = '/public/icon/search.svg'
+                h1.innerHTML = item.title;
+                div.onclick = () => {
+                    location.assign(`/pages/product_page/product.html?id=${item.id}`);
+                };
+                modal_search.append(div);
+                div.append(img, h1)
+            }
+
+            modal.classList.add('show', 'fade');
+            modal.classList.remove('hide');
+        } catch (error) {
+            console.error("Ошибка при получении данных:", error);
+        }
+    } else {
+        modal.classList.remove('show', 'fade');
+        modal.classList.add('hide');
     }
+}
 
-    getData('/goods')
-        .then(res => {
-            let tov = res
+search_btn.onclick = async () => {
+    let search = search_inp.value.trim().toLowerCase();
+    let response = await getData('/goods');
+    let tov = response;
+    let filtrov = tov.filter(tov => tov.title.trim().toLowerCase().includes(search));
+    // export default filtrov
+    location.assign('/pages/poisk/index.html')
+    localStorage.setItem('serch_inp_local', JSON.stringify(search_inp.value));
+    localStorage.setItem('filtrov', JSON.stringify(filtrov));
+}
 
-            let filt_tov = tov.filter(tov => tov.title.trim().toLowerCase().includes(search))
 
-            reloadSearch(filt_tov)
-        })
+        
 
-    modal.classList.add('show', 'fade')
-    modal.classList.remove('hide')
+people_btn.onclick = () => {
+    let modal_sign = document.querySelector('.modal_sign')
+
+    modal_sign.classList.add('show', 'fade')
+    modal_sign.classList.remove('hide')
 }

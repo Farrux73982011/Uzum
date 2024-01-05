@@ -1,0 +1,73 @@
+.modal_sign{
+    div{
+        margin-top: 30px;
+    }
+    transform: translate(-50%, -50%) !important;
+    top: 50% !important;
+    left: 50% !important;
+    padding: 10px 60px 50px 60px;
+    // left: 34%;
+    z-index: 1000;
+    position: absolute;
+    display: none;
+    width: 35%;
+    box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    .img_sign{
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        padding: 5px;
+        padding-top: 0;
+        padding-bottom: 7px;
+        font-weight: 500;
+        color: #6d6d6d;
+        font-size: 30px;
+        height: 30px;
+        border-radius: 100px;
+        background-color: #d2d2d2;
+        width: fit-content;
+        margin-left: 94%;
+    }
+    .p_sign{
+        margin-top: 20px;
+        font-size: 14px;
+    }
+    input{
+        margin-top: 40px;
+        border: none;
+        border-radius: 10px;
+        background-color: #e6e8ed;
+        font-size: 18px;
+        padding-left: 20px;
+        width: 100%;
+        height: 40px;
+        outline: none;
+    }
+    // input:focus{
+    //     border: none;
+    // }
+    button{
+        margin-top: 20px;
+        width: 100%;
+        border: none;
+        border-radius: 10px;
+        background-color: #7000ff;
+        height: 40px;
+        font-size: 18px;
+        font-weight: 600;
+        color: #fff;
+    }
+    .p2_sign{
+        margin-top: 100px;
+    }
+}
+.hide{
+    display: none;
+}
+.show{
+    display: block;
+}

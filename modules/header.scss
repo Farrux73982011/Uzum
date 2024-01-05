@@ -58,8 +58,8 @@
       display: flex;
       border-radius: 100px;
       .logo2_img{
-        width: 215px;
-        height: 32px;
+        width: 100%;
+        height: 30px;
         margin-right: 10px;
         border-radius: 100px;
       }
@@ -71,17 +71,12 @@
       display: flex;
       color: #7a55e0;
       font-size: 14px;
-      font-weight: 500;
+      font-weight: 600;
       border: none;
       border-radius: 5px;
       background-color: rgb(243, 236, 249);
       width: 10%;
       height: 40px;
-      .catalog_img{
-        margin-right: 10px;
-        fill: #7a55e0;
-        width: 15%;
-      }
     }
     .search_inp{
       padding: 0 10px;
@@ -156,25 +151,8 @@
   border-radius: 3px;
   padding: 3px 5px;
 }
-
-.modal_search{
-  padding: 0 5px 0 5px;
-  left: 34%;
-  z-index: 1000;
-  position: absolute;
-  display: none;
-  width: 28%;
-  box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.2);
-  background-color: #fff;
-  border-radius: 0 0 10px 10px;
-  overflow: hidden;
-  h1{
-    cursor: pointer;
-    width: 100%;
-    height: 30px;
-    margin-top: 20px;
-    font-size: 16px;
-  }
+.rass_span{
+  cursor: pointer;
 }
 .show {
 	display: block;
@@ -185,4 +163,28 @@
 .fade {
 	animation-name: fade;
 	animation-duration: 1.5s;
+}
+.catalog_div{
+  margin-right: 5px;
+}
+.div_catal3{
+  margin: 0 auto;
+  border: 2px solid #7000ff;
+  width: 18px;
+  height: 14px;
+  border-radius: 2px;
+}
+.div_catal2{
+  margin: 0 auto;
+  border: 1.5px solid #7000ff;
+  width: 15px;
+  border-radius: 2px 2px 0 0;
+  margin-bottom: 1px;
+  margin-top: 2px;
+}
+.div_cata1{
+  margin: 0 auto;
+  border: 1.5px solid #7000ff;
+  width: 13px;
+  border-radius: 2px 2px 0 0;
 }

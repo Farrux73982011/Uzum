@@ -1,5 +1,8 @@
-import { getData } from "../../modules/http";
+import { getData, removeData } from "../../modules/http";
 let container = document.querySelector('.container')
+let glav_container = document.querySelector('.glav_container')
+let glav_2 = document.querySelector('.glav_2')
+let hran = document.querySelector('.hran')
 let del_btn = document.querySelector('.delete_button')
 let card = []
 let total = 0
@@ -78,7 +81,7 @@ function roloadProductCard(arr) {
             new_price.classList.remove('active_price')
         }
 
-        container.append(cart_div)
+        hran.append(cart_div)
         cart_div.append(first_box, second_box, third_box, fourth_box)
         first_box.append(product_checkbox)
         second_box.append(product_image)
@@ -113,9 +116,24 @@ function roloadProductCard(arr) {
           if(product_checkbox.checked === true){
               total += updated_price
           }
+          delete_button.onclick = () => {
+              removeData('/card', item.id)
+              return 
+          }
     }
+
     let tov_h1 = document.querySelector('.tov_h1')
     let price_tov = document.querySelector('.price_tov')
     tov_h1.innerHTML = `Товары (${arr.length}):`
-    price_tov.innerHTML = total    
+    price_tov.innerHTML = total
 }
+if(hran.length <= 0){
+    glav_container.classList.add('hide')
+    glav_2.classList.remove('hide')
+    glav_2.classList.add('show')
+}else{
+    glav_container.classList.remove('hide')
+    glav_2.classList.add('hide')
+    glav_2.style.display = 'flex'
+}
+console.log(hran);
