@@ -1,25 +1,26 @@
 import { reloadProduct } from "/modules/card_reload";
 import { getData } from "/modules/http";
+let h1_glav_ser = document.querySelector('.h1_glav_ser')
 // import { filtrov } from '/modules/header';
 let search_inp = document.querySelector('.search_inp')
 let filtrov = JSON.parse(localStorage.getItem('filtrov'));
+let container = document.querySelector('.con')
 let serch_inp_local = JSON.parse(localStorage.getItem('serch_inp_local'));
 let gen = location.search.split('=').at(-1);
+let pops = document.querySelector('.pops')
 console.log(gen);
 if(gen.length <=0){
   let titel = document.querySelector('title')
   
-  let container = document.querySelector('.container')
-
   reloadProduct(filtrov, container)
   
   // search_inp.value = serch_inp_local
+  h1_glav_ser.innerHTML = `"${serch_inp_local}" - pезультаты поиска`
   titel.innerHTML = `"${serch_inp_local}" - pезультаты поиска`
 }
 else{
   let titel = document.querySelector('title')
   
-  let container = document.querySelector('.container')
     let tov = await getData('/goods');
   
     let filter_tov = tov.filter(item => item.type.includes(gen));
@@ -29,10 +30,14 @@ else{
     reloadProduct(filter_tov, container)
   
   
+  h1_glav_ser.innerHTML = gen.slice(0, 1).toUpperCase() + gen.slice(1, gen.length)
   titel.innerHTML = gen
 }
 
-
+getData('/goods')
+  .then(res => {
+    reloadProduct(res, pops)
+  })
 // let sveta_ = 
 // getData('/goods')
 //     .then(res => {
@@ -60,6 +65,7 @@ let svet6 = document.createElement('div')
 let svet7 = document.createElement('div')
 let svet8 = document.createElement('div')
 let svet9 = document.createElement('div')
+let div_cetagories = document.createElement('div')
 
 sena.classList.add('sena')
 categort.classList.add('category')
@@ -80,7 +86,7 @@ svet8.classList.add('svet8', 'svet_item')
 svet9.classList.add('svet9', 'svet_item')
 
 sena.innerHTML = 'Цена:'
-categort.innerHTML = 'Категория'
+categort.innerHTML = 'Категории'
 inp1.placeholder = 'от 0'
 inp2.placeholder = 'до 10000000000'
 svet.innerHTML = 'Цвет:'

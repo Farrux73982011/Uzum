@@ -1,0 +1,31 @@
+@media only screen and (max-device-width: 375px){
+    .product_container{
+        padding: 5%;
+        width: 100% !important;
+        display: block !important;
+    }
+    .up_up{
+        width: 100%;
+    }
+    .div_container{
+        width: fit-content;
+    }
+    .slider{
+        img{
+            width: 200px !important;
+        }
+        .slide{
+            width: 200px !important;
+        }
+        width: fit-content !important;
+    }
+    .thumbs{
+        width: 20% !important;
+        img{
+            width: 100% !important;
+        }
+    }
+    .slider-container{
+        width: fit-content;
+    }
+}

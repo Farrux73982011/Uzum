@@ -1,3 +1,10 @@
+.header1{
+  display: block;
+}
+.header2{
+  display: none;
+}
+
 .header_up{
     justify-content: space-between;
     display: flex;
@@ -81,7 +88,7 @@
     .search_inp{
       padding: 0 10px;
       margin-left: 10px;
-      border: 1.5px solid rgb(153, 153, 153);
+      border: 1.5px solid rgb(166, 162, 162);
       border-top-left-radius: 5px;
       border-bottom-left-radius: 5px;
       width: 40%;

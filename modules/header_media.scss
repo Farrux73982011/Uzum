@@ -1,0 +1,36 @@
+@media only screen and (max-device-width: 375px){
+    #header{
+        display: none;
+    }
+    .header2{
+      // display:;
+        justify-content: center;
+        display: flex !important;
+        align-items: center !important;
+    }
+    .inp_ser{
+        padding: 0 10px;
+        padding-left: 35px;
+        margin-left: 10px;
+        border: none;
+        background-color: #edeff2;
+        // border-top-left-radius: 5px;
+        // border-bottom-left-radius: 5px;
+        border-radius: 5px;
+        margin-top: 10px;
+        width: 100%;
+        border-right: none;
+        height: 40px;
+        z-index: 1;
+        // position: relative;
+      }
+      .inp_ser_img{
+        // position: absolute;
+        cursor: pointer;
+        width: 7%;
+        margin-left: 5px;
+        margin-top: 9px;
+        z-index: 3;
+        margin-right: -10%;
+      }
+}

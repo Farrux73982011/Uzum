@@ -1,10 +1,11 @@
 import { reloadGenres } from "./genres"
+import '/modules/header_media.scss'
 import { getData } from "./http"
 import '/modules/modal.scss'
 // import { reloadSearch } from "./modal"
 import '/modules/header.scss'
 
-let header = document.querySelector('header')
+let header = document.querySelector('#header')
 
 //A
 let header_up = document.createElement('div')
@@ -223,4 +224,57 @@ people_btn.onclick = () => {
 
     modal_sign.classList.add('show', 'fade')
     modal_sign.classList.remove('hide')
+}
+
+let header2 = document.querySelector('.header2')
+let inp_ser = document.createElement('input')
+let inp_ser_img = document.createElement('img')
+
+inp_ser.classList.add('inp_ser')
+inp_ser_img.classList.add('inp_ser_img')
+
+inp_ser.placeholder = 'Искать товары и категории'
+inp_ser_img.src = '/public/icon/search.svg'
+
+header2.append(inp_ser_img, inp_ser)
+
+
+inp_ser.onkeyup = async () => {
+    let search = search_inp.value.trim().toLowerCase();
+
+    if (search.length > 0) {
+        try {
+            let res = await getData('/goods');
+            let tov = res;  // Изменено на let res
+            let filt_tov = tov.filter(tov => tov.title.trim().toLowerCase().includes(search));
+
+            let modal_search = document.querySelector('.modal_search');
+            modal_search.innerHTML = '';
+
+            for (let item of filt_tov) {
+                let div = document.createElement('div')
+                let img= document.createElement('img')
+                let h1 = document.createElement('h1');
+                h1.classList.add('modal_ser_h1');
+                div.classList.add('modal_ser_div');
+                img.classList.add('modal_ser_img');
+
+                img.src = '/public/icon/search.svg'
+                h1.innerHTML = item.title;
+                div.onclick = () => {
+                    location.assign(`/pages/product_page/product.html?id=${item.id}`);
+                };
+                modal_search.append(div);
+                div.append(img, h1)
+            }
+
+            modal.classList.add('show', 'fade');
+            modal.classList.remove('hide');
+        } catch (error) {
+            console.error("Ошибка при получении данных:", error);
+        }
+    } else {
+        modal.classList.remove('show', 'fade');
+        modal.classList.add('hide');
+    }
 }
