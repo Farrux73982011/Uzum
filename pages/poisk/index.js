@@ -21,7 +21,7 @@ if(gen.length <=0){
 else{
   let titel = document.querySelector('title')
   
-    let tov = await getData('/goods');
+    let tov = getData('/goods');
   
     let filter_tov = tov.filter(item => item.type.includes(gen));
   
