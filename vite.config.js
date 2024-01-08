@@ -8,7 +8,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         card: resolve(__dirname, 'pages/card/card.html'),
         poisk: resolve(__dirname, 'pages/poisk/index.html'),
-        product_page: resolve(__dirname, 'pages/product_page/index.html'),
+        product_page: resolve(__dirname, 'pages/product_page/product.html'),
     },
     },
   },
