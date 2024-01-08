@@ -64,7 +64,7 @@ let categoriess_box_d = document.createElement('div')
 //B
 
 city.innerHTML = 'Город:'
-place_img.src = '/public/icon/place.svg'
+place_img.src = '/icon/place.svg'
 place_span.innerHTML = 'Ташкент'
 punkt.innerHTML = 'Пункты выдачи'
 dos.innerHTML = 'Доставим ваш заказ бесплатно — всего за 1 день!'
@@ -73,19 +73,19 @@ vop_ot.href = '#'
 my_zakaz.innerHTML = 'Мои заказы'
 my_zakaz.href = '#'
 lang_box.innerHTML = 'Русский'
-ru_img.src = '/public/icon/ru.svg'
+ru_img.src = '/icon/ru.svg'
 logo2_img.src = 'https://uzum-by-doni.netlify.app/uzum_logo.png'
 catalog_btn.innerHTML = 'Каталог'
 search_inp.placeholder = 'Искать товары и категории'
-search_img.src = '/public/icon/search.svg'
+search_img.src = '/icon/search.svg'
 people_btn.innerHTML = 'Войти'
-people_img.src = '/public/icon/people.svg'
+people_img.src = '/icon/people.svg'
 izb_btn.innerHTML = 'Избранное'
-izb_img.src = '/public/icon/izb.svg'
+izb_img.src = '/icon/izb.svg'
 paket_btn.innerHTML = 'Корзина'
-paket_img.src = '/public/icon/paket.svg'
+paket_img.src = '/icon/paket.svg'
 rass_box.innerHTML = 'Рассрочка'
-rass_img.src = '/public/icon/union.png'
+rass_img.src = '/icon/union.png'
 
 //B
 
@@ -185,7 +185,7 @@ search_inp.onkeyup = async () => {
                 div.classList.add('modal_ser_div');
                 img.classList.add('modal_ser_img');
 
-                img.src = '/public/icon/search.svg'
+                img.src = '/icon/search.svg'
                 h1.innerHTML = item.title;
                 div.onclick = () => {
                     location.assign(`/pages/product_page/product.html?id=${item.id}`);
@@ -234,7 +234,7 @@ inp_ser.classList.add('inp_ser')
 inp_ser_img.classList.add('inp_ser_img')
 
 inp_ser.placeholder = 'Искать товары и категории'
-inp_ser_img.src = '/public/icon/search.svg'
+inp_ser_img.src = '/icon/search.svg'
 
 header2.append(inp_ser_img, inp_ser)
 
@@ -259,7 +259,7 @@ inp_ser.onkeyup = async () => {
                 div.classList.add('modal_ser_div');
                 img.classList.add('modal_ser_img');
 
-                img.src = '/public/icon/search.svg'
+                img.src = '/icon/search.svg'
                 h1.innerHTML = item.title;
                 div.onclick = () => {
                     location.assign(`/pages/product_page/product.html?id=${item.id}`);
